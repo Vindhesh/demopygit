@@ -1,0 +1,19 @@
+a{
+    color:blue;
+}
+h1{
+    background-color:gray;
+}
+marquee{
+    background-color: teal;
+}
+img{
+    padding-left: 10px;
+    height: 50px;
+    width: 50px;
+}
+body{
+background-color: black;
+text-shadow: blanchedalmond;
+font-variant-position: normal;
+}

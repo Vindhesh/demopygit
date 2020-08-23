@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
-from forms import SignupForm
+from form import SignupForm
 
 from models import db
 def init_db():
@@ -71,7 +71,7 @@ def login():
 
 if __name__ == '__main__':
     app.init_db()
-        app.run('0.0.0.0', debug=True)# output : Line A \n Line B
+    app.run('http://127.0.0.1:5000/', debug=True)# output : Line A \n Line B
 print (r"Line A \n Line B")
 # output : \" \'
 print("\\\"\\'")

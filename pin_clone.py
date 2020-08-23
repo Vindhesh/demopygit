@@ -6,10 +6,10 @@ app = Flask(__name__)
 app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///pin.db'
 db = sqlalchemy(app)
 
-class Pin(db.Model):
-    id = Column(Integer, primary_key = True)
-    title = Coulmn(Text, unique = False)
-    image = Column(Text, unique = False)
+# class Pin(db.Model):
+#     id = Column(Integer, primary_key = True)
+#     title = Coulmn(Text, unique = False)
+#     image = Column(Text, unique = False)
 
 db.create_all()
 
