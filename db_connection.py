@@ -1,18 +1,35 @@
+# importing mysql.connector module.
 import mysql.connector
 
+# creating a connection to the database.
 mydb = mysql.connector.connect(host="localhost",user="Vindhesh",passwd="Qwerty@1",database="vindhesh")
 
+# Setting a cursor usinng cursor() method that would store our sql queries. 
 mycursor = mydb.cursor()
 
-name = "Chitra"
-college_name = "I.Y"
+try:
+    #input the user data and store in respective variable.
+    name = input("Enter your name: ")
+    college_name = input("Enter your college name:")
 
-# query = (f"insert into student values('{name}','{college_name}');")
-# print(query)
-# mycursor.execute(query)
+    #creating a query for my-sql.
+    query = (f"insert into students values('{name}','{college_name}');")
 
-mycursor.execute("select * from student;")
-result = mycursor.fetchmany(100)
-# status = print(mycursor._affected_rows())
-for i in result:
-    print(i)
+    # inserting query in cursor.
+    mycursor.execute(query)
+
+finally:
+    #commiting the changes to database.  
+    mydb.commit()
+
+    #getting the information of rows affected
+    print(mycursor.rowcount, "Record Inserted")
+
+    #getting the data updated data in the table
+    mycursor.execute("select * from students;")
+
+    #creating a loop to fetch data stored in cursor as a response
+    result = mycursor.fetchmany(100)
+    for i in result:
+        print(i)
+
