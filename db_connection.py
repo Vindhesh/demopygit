@@ -2,10 +2,12 @@
 import mysql.connector
 
 # creating a connection to the database.
-mydb = mysql.connector.connect(host="localhost",user="Vindhesh",passwd="Qwerty@1",database="vindhesh")
+conx = mysql.connector.connect(host="localhost",user="Vindhesh",passwd="Qwerty@1",database="vindhesh")
 
 # Setting a cursor usinng cursor() method that would store our sql queries. 
-mycursor = mydb.cursor()
+mycursor = conx.cursor()
+
+
 
 try:
     #input the user data and store in respective variable.
@@ -20,7 +22,7 @@ try:
 
 finally:
     #commiting the changes to database.  
-    mydb.commit()
+    conx.commit()
 
     #getting the information of rows affected
     print(mycursor.rowcount, "Record Inserted")
